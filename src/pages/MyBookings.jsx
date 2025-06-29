@@ -20,7 +20,7 @@ const MyBookings = () => {
     const fetchBookings = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/bookings/user/${user.id}`
+          `https://meeting-room-booking-backend-nto9.onrender.com/api/bookings/user/${user.id}`
         );
         const data = await res.json();
         setBookings(data);
@@ -38,7 +38,7 @@ const MyBookings = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/bookings/${bookingId}?user=${user.id}`,
+        `https://meeting-room-booking-backend-nto9.onrender.com/api/bookings/${bookingId}?user=${user.id}`,
         { method: "DELETE" }
       );
       const data = await res.json();
@@ -86,7 +86,7 @@ const MyBookings = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/bookings/${editingBooking.id}`,
+        `https://meeting-room-booking-backend-nto9.onrender.com/api/bookings/${editingBooking.id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -100,7 +100,7 @@ const MyBookings = () => {
         alert("Booking updated!");
         setEditingBooking(null);
         const fresh = await fetch(
-          `http://localhost:5000/api/bookings/user/${user.id}`
+          `https://meeting-room-booking-backend-nto9.onrender.com/api/bookings/user/${user.id}`
         );
         setBookings(await fresh.json());
       } else {
