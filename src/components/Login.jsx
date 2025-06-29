@@ -14,7 +14,7 @@ const Login = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const endpoint = isSignup ? "/api/users/signup" : "/api/users/login";
+    const endpoint = isSignup ? "api/users/signup" : "api/users/login";
     const payload = isSignup ? { name, email, password } : { email, password };
 
     try {
