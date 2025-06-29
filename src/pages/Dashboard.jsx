@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const fetchRooms = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/rooms");
+      const res = await fetch("https://meeting-room-booking-backend-nto9.onrender.com/api/rooms");
       const data = await res.json();
       setRooms(data);
     } catch (err) {
@@ -35,7 +35,7 @@ const Dashboard = () => {
     if (!filterStart || !filterEnd) return alert("Please select both times.");
     try {
       const res = await fetch(
-        `http://localhost:5000/api/bookings/availability?start=${encodeURIComponent(
+        `https://meeting-room-booking-backend-nto9.onrender.com/api/bookings/availability?start=${encodeURIComponent(
           filterStart
         )}&end=${encodeURIComponent(filterEnd)}`
       );
@@ -60,7 +60,7 @@ const Dashboard = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/bookings", {
+      const res = await fetch("https://meeting-room-booking-backend-nto9.onrender.com/api/bookings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
