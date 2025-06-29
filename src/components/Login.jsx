@@ -31,7 +31,14 @@ const Login = ({ setUser }) => {
         navigate("/dashboard");
       } else {
         const err = await res.json();
-        alert(err.error || "Something went wrong");
+
+        // Improved error alert to stringify the error object if needed
+        const errorMessage =
+          typeof err.error === "string"
+            ? err.error
+            : JSON.stringify(err, null, 2);
+
+        alert(errorMessage);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -67,7 +74,6 @@ const Login = ({ setUser }) => {
             delaySpeed={1500}
           />
         </h1>
-
 
         <h2 className="text-2xl font-extrabold text-center text-blue-700">
           {isSignup ? "Sign Up" : "Log In"}
