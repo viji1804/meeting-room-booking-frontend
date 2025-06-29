@@ -17,7 +17,7 @@ const RoomCard = ({ room, onBook }) => {
   const fetchSchedule = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/bookings/room/${room.id}/today`
+        `https://meeting-room-booking-backend-nto9.onrender.com/api/bookings/room/${room.id}/today`
       );
       const data = await res.json();
       setSchedule(data);
